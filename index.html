@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Simon The Game</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+
+<div id="app">
+  <div :class="{shake: isWrong, grow: isWon}">
+    <div class="game" :class="{fullSize: playing}">
+      <div class="square" @click="clicked(1)" :class="{lit: isLit[1]}"></div>
+      <div class="square" @click="clicked(2)" :class="{lit: isLit[2]}"></div>
+      <div class="square" @click="clicked(3)" :class="{lit: isLit[3]}"></div>
+      <div class="square" @click="clicked(4)" :class="{lit: isLit[4]}"></div>
+      <div class="start" @click="startGame">{{ centerButton }}
+        <span v-show="playing">{{ showScore }}</span>
+      </div>
+    </div>
+  </div>
+  <div v-show="playing" class="bottom-bar">
+    <p>Mode: </p>
+    <button :class="{active: !strict}" @click="strict = false">Normal</button>
+    
+
+  </div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.3/howler.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
